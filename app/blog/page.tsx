@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getDatabasePages } from "../../lib/notion";
 
 export default async function Page() {
-  const rawPages = await getDatabasePages();
+  const rawPages = await getDatabasePages(process.env.NOTION_BLOG_DB_ID!);
 
   // Filter published pages and ensure properties exist
   const pages = rawPages

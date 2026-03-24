@@ -4,16 +4,15 @@ export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-// Retrieve database metadata
-export const getDatabase = async () => {
-  return await notion.databases.retrieve({
-    database_id: process.env.NOTION_BLOG_DB_ID!,
-  });
+// Generic function to get database metadata by ID
+export const getDatabase = async (databaseId: string) => {
+  return await notion.databases.retrieve({ database_id: databaseId });
 };
 
+
 // Get pages from the database via the first data source
-export const getDatabasePages = async () => {
-  const database = await getDatabase();
+export const getDatabasePages = async (databaseId: string) => {
+  const database = await getDatabase(databaseId);
 
   const dataSources = (database as any).data_sources;
   const dataSourceId = dataSources?.[0]?.id;
@@ -28,6 +27,7 @@ export const getDatabasePages = async () => {
 
 };
 
+// Get all content blocks for a page, handling pagination
 export const getPageBlocks = async (pageId: string) => {
   const blocks: any[] = [];
   let cursor: string | undefined = undefined;
@@ -48,3 +48,9 @@ export const getPageBlocks = async (pageId: string) => {
   return blocks;
 };
 
+export const getPhotosByCollection = async (collection: string) => {
+  const photos = await getDatabasePages(process.env.NOTION_PHOTO_DB_ID!);
+  return photos.filter(
+    (p: any) => p.properties.Collection.select?.name === collection
+  );
+};
