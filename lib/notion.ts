@@ -7,7 +7,7 @@ export const notion = new Client({
 // Retrieve database metadata
 export const getDatabase = async () => {
   return await notion.databases.retrieve({
-    database_id: process.env.NOTION_DATABASE_ID!,
+    database_id: process.env.NOTION_BLOG_DB_ID!,
   });
 };
 
