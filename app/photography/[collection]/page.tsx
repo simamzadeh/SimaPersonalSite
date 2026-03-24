@@ -56,37 +56,43 @@ export default async function CollectionPage({ params }: Props) {
 
   // 6. Render photos
   return (
-    <main className="p-8 max-w-6xl mx-auto">
+    <main className="p-4">
       <h1 className="text-4xl font-bold mb-8">{decodedCollection}</h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {photos.map((photo) => {
-          const url = photo.properties["Image URL"]?.url;
-          const caption =
-            photo.properties["Caption"]?.rich_text?.[0]?.plain_text || "";
+      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6">
+  {photos.map((photo) => {
+    const url = photo.properties["Image URL"]?.url;
+    const caption =
+      photo.properties["Caption"]?.rich_text?.[0]?.plain_text || "";
 
-          if (!url)
-            return (
-              <p key={photo.id} className="text-red-500 text-sm">
-                Missing image URL for this photo
-              </p>
-            );
+    if (!url)
+      return (
+        <p key={photo.id} className="text-red-500 text-sm">
+          Missing image URL for this photo
+        </p>
+      );
 
-          return (
-            <div key={photo.id} className="relative group">
-              <img
-                src={url}
-                alt={caption}
-                className="w-full h-auto rounded-lg shadow-md object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                loading="lazy"
-              />
-              {caption && (
-                <p className="text-sm mt-1 text-gray-600">{caption}</p>
-              )}
-            </div>
-          );
-        })}
+    return (
+      <div
+        key={photo.id}
+        className="mb-6 break-inside-avoid"
+      >
+        <img
+          src={url}
+          alt={caption}
+          className="w-full h-auto object-cover transition-transform duration-300 hover:scale-[1.02]"
+          loading="lazy"
+        />
+
+        {caption && (
+          <p className="text-sm mt-2 text-gray-600">
+            {caption}
+          </p>
+        )}
       </div>
+    );
+  })}
+</div>
     </main>
   );
 }
