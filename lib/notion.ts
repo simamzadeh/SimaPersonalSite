@@ -27,3 +27,24 @@ export const getDatabasePages = async () => {
   return response.results;
 
 };
+
+export const getPageBlocks = async (pageId: string) => {
+  const blocks: any[] = [];
+  let cursor: string | undefined = undefined;
+
+  while (true) {
+    const response = await notion.blocks.children.list({
+      block_id: pageId,
+      start_cursor: cursor,
+      page_size: 50,
+    });
+
+    blocks.push(...response.results);
+
+    if (!response.has_more) break;
+    cursor = response.next_cursor!;
+  }
+
+  return blocks;
+};
+
