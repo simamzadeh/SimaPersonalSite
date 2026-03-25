@@ -5,14 +5,14 @@ export default function HomePage() {
 
       {/* 🖼️ Floating scrapbook image */}
       <img
-        src="/images/leaf.png"
+        src="/images/fujifilm.png"
         alt=""
         className="
           absolute 
           top-16 
           right-[-60px] 
           w-64 
-          rotate-[-6deg] 
+          rotate-[6deg] 
           hover:rotate-0 
           transition-transform duration-300
           pointer-events-auto
