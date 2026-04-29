@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const caveat = Caveat({
   variable: "--font-caveat",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,22 +26,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable}`}
     >
-      <body
-  style={{ backgroundColor: '#fdfcf9', color: '#1a1a1a' }}
-  className="min-h-full flex flex-col"
->
-        <div className="max-w-5xl mx-auto w-full px-6 py-10">
-          <Navbar />
-          {children}
-        </div>
+      <body className="min-h-screen bg-[#fdfaf6] text-[#2b2b2b]">
+        {children}
       </body>
     </html>
   );

@@ -53,8 +53,18 @@ export default async function PostPage({ params }: Props) {
               );
             }
 
+            case "heading_1": {
+              const textArray = block.heading_1?.rich_text || [];
+              if (!textArray.length) return null;
+              return (
+                <h1 key={block.id} className="text-3xl font-bold mt-6 mb-2">
+                  {textArray.map((t: any) => t.plain_text).join("")}
+                </h1>
+              );
+            }
+
             case "heading_2": {
-              const textArray = block.heading_2?.text || [];
+              const textArray = block.heading_2?.rich_text || [];
               if (!textArray.length) return null;
               return (
                 <h2 key={block.id} className="text-2xl font-semibold mt-6 mb-2">
@@ -64,7 +74,7 @@ export default async function PostPage({ params }: Props) {
             }
 
             case "heading_3": {
-              const textArray = block.heading_3?.text || [];
+              const textArray = block.heading_3?.rich_text || [];
               if (!textArray.length) return null;
               return (
                 <h3 key={block.id} className="text-xl font-semibold mt-4 mb-2">
