@@ -61,7 +61,8 @@ export default async function CollectionPage({ params }: Props) {
 
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6">
   {photos.map((photo) => {
-    const url = photo.properties["Image URL"]?.url;
+    const file = photo.properties["Photo"]?.files?.[0];
+    const url = file?.file?.url ?? file?.external?.url;
     const caption =
       photo.properties["Caption"]?.rich_text?.[0]?.plain_text || "";
 

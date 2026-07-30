@@ -32,7 +32,7 @@ export default async function PhotographyOverview() {
         {collections.map((col) => (
           <Link
             key={col}
-            href={`/photography/${encodeURIComponent(col)}`}
+            href={`/photos/${encodeURIComponent(col)}`}
             className="p-6 bg-gray-100 rounded-lg shadow hover:bg-gray-200 transition"
           >
             <h2 className="text-xl font-semibold">{col}</h2>
