@@ -7,9 +7,10 @@ export default function Navbar() {
     sima
   </Link>
   <div className="flex gap-6 text-neutral-500">
+    <Link href="/" className="hover:text-neutral-700 transition">home</Link>
     <Link href="/blog" className="hover:text-neutral-700 transition">blog</Link>
-    <Link href="/photography" className="hover:text-neutral-700 transition">photography</Link>
-    <Link href="/projects" className="hover:text-neutral-700 transition">projects</Link>
+    <Link href="/photos" className="hover:text-neutral-700 transition">photos</Link>
+    <Link href="/creations" className="hover:text-neutral-700 transition">creations</Link>
   </div>
 </nav>
   );

@@ -17,13 +17,6 @@ export default function HomePage() {
             className="h-16 w-auto select-none pointer-events-none mt-[-2px]"
           />
         </div>
-
-        <nav className="flex gap-8 text-sm tracking-wide">
-          <a href="/blog">blog</a>
-          <a href="/photos">photos</a>
-          <a href="/music">art</a>
-          <a href="/about">about</a>
-        </nav>
       </header>
 
       {/* =========================
