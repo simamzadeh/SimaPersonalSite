@@ -34,8 +34,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable}`}
     >
-      <Navbar />
       <body className="min-h-screen bg-[#fdfaf6] text-[#2b2b2b]">
+        <Navbar />
         {children}
       </body>
     </html>
