@@ -7,7 +7,7 @@
     position: relative;
     top: 50px;
     cursor: pointer;
-    animation: up 3s linear infinite;
+    /* animation: up 3s linear infinite; */
 }
 .envelope{
     position: relative;
@@ -67,7 +67,7 @@
     border: 2px solid #003049;
     border-style: dashed;
 }
-.envelopeWrapper:hover .card{
+.envelopeWrapper:opened .card{
     transform: translateY(-100px);
 }
 .card .text{

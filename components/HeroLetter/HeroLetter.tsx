@@ -8,7 +8,7 @@ export default function HeroLetter() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.envelopeWrapper}>
+      <div className={`${styles.envelopeWrapper} ${opened ? styles.opened : ""}`}>
         <div className={styles.envelope}>
           <div className={styles.card}>
             <div className={styles.cardContent}>
